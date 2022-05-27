@@ -3,10 +3,13 @@ const express = require("express");
 const app = express();
 const port = 8080;
 
-app.get("/home", (req, res) => {
+let count = 0;
+
+app.get("/", (req, res) => {
     console.log(req.ip);
     console.log("lol");
-    res.send({ msg: "lol this is working somehow!" });
+    count++;
+    res.send({ msg: "lol this is working somehow!", count: count });
 });
 
 app.listen(port, () => {
